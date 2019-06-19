@@ -29,8 +29,9 @@ pipeline {
                 stage('parallel_1') {
                     steps {
                         sh 'touch step-parallel_1'
-                        sh 'ps aux'
-                        sh 'whoami'
+                        sh 'find .'
+                        sh 'grep . */*'
+                        sh 'sleep 2m'
                     }
                 }
                 stage('parallel_2') {
