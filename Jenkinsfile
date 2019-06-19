@@ -29,7 +29,8 @@ pipeline {
                 stage('parallel_1') {
                     steps {
                         sh 'touch step-parallel_1'
-                        sh 'sleep 30s'
+                        sh 'ps aux'
+                        sh 'whoami'
                     }
                 }
                 stage('parallel_2') {
