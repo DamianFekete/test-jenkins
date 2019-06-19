@@ -5,6 +5,23 @@ pipeline {
             steps {
                 sh 'touch step-build'
             }
+
+            environment {
+                x = "abc"
+            }
+
+            when {
+                branch 'master'
+            }
+
+            post {
+                unsuccessful {
+                    sh 'touch post-unsuccessful'
+                }
+                fixed {
+                    sh 'touch post-fixed'
+                }
+            }
         }
 
         stage('stage_2') {
@@ -39,23 +56,6 @@ pipeline {
                         sh 'touch step-parallel_2_3'
                     }
                 }
-            }
-        }
-
-        environment {
-            x = "abc"
-        }
-
-        when {
-            branch 'master'
-        }
-
-        post {
-            unsuccessful {
-                sh 'touch post-unsuccessful'
-            }
-            fixed {
-                sh 'touch post-fixed'
             }
         }
 
