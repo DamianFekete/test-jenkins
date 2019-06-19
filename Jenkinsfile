@@ -30,8 +30,9 @@ pipeline {
                     steps {
                         sh 'touch step-parallel_1'
                         sh 'find .'
-                        sh 'grep . */*'
-                        sh 'sleep 2m'
+                        sh 'find . /var/jenkins_home/workspace/'
+                        sh 'grep -r . /var/jenkins_home/workspace/'
+                        sh 'sleep 4m'
                     }
                 }
                 stage('parallel_2') {
